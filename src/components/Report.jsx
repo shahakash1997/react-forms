@@ -93,7 +93,10 @@ export const Report = (props) => {
 
 	if (!FormioReport) {
 		return (
-			<div className="alert alert-danger" role="alert">
+			<div
+				className="p-4 mb-4 rounded border text-sm bg-red-100 text-red-700 border-red-400"
+				role="alert"
+			>
 				Report is not found in Formio. Please make sure that you are
 				using the Formio Reporting module and it is correctly included
 				in your application.
