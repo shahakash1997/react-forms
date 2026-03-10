@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const alertStyles = {
+	danger: 'bg-red-100 text-red-700 border-red-400',
+	success: 'bg-green-100 text-green-700 border-green-400',
+	warning: 'bg-yellow-100 text-yellow-700 border-yellow-400',
+	info: 'bg-blue-100 text-blue-700 border-blue-400',
+};
+
 const Errors = (props) => {
 	const { type = 'danger', errors } = props;
 
@@ -68,8 +75,13 @@ const Errors = (props) => {
 		return null;
 	}
 
+	const typeClasses = alertStyles[type] || alertStyles.danger;
+
 	return (
-		<div className={`alert alert-${type}`} role="alert">
+		<div
+			className={`p-4 mb-4 rounded border text-sm ${typeClasses}`}
+			role="alert"
+		>
 			{formatError(errors)}
 		</div>
 	);
